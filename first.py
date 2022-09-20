@@ -107,7 +107,7 @@ def lambda_handler(event, context):
     email_server.login(send_address, send_pass)
 
     # Slack Webhook URL
-    slack_url = "https://hooks.slack.com/services/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"
+    slack_url = " "
 
     # S3 API call for file object upload
     try:
