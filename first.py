@@ -201,4 +201,4 @@ def lambda_handler(event, context):
     logger.info("Closing the Email Server Connection")
     email_server.close()
     return
-Iniial CommitInitial Commit
+
