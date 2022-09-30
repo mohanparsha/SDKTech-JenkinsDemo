@@ -97,9 +97,9 @@ def lambda_handler(event, context):
     src_filename = src_keyname[3]
 
     trgt_filename = re.sub("[^A-Za-z0-9/_\\-.]", "", src_filename)
-    dst_path = trgt_path + '/' + current_date.strftime("%Y/%m/%d/") + 
-        os.path.splitext(trgt_filename)[0] + 
-        os.path.splitext(trgt_filename)[1]
+    dst_path = trgt_path + '/' + current_date.strftime("%Y/%m/%d/")
+        + os.path.splitext(trgt_filename)[0]
+        + os.path.splitext(trgt_filename)[1]
     logger.info("Destination Path : {}".format(dst_path))
 
     # Create SMTP Server Resource and Authenticate
@@ -164,8 +164,8 @@ def lambda_handler(event, context):
 
         # Construct Email Message
         message['Subject'] = 'File Upload Status-Failed'
-        mail_content = "'File %s Upload to Destination S3 Bucket %s FAILED'" % (
-            src_filename, trgt_bucket)
+        mail_content = "'File %s Upload to Destination S3 Bucket %s FAILED'"
+            % (src_filename, trgt_bucket)
         message.attach(MIMEText(mail_content, 'plain'))
         email_text = message.as_string()
         email_server.sendmail(send_address, receive_address, email_text)
